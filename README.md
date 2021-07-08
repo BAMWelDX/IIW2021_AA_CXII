@@ -1,4 +1,4 @@
-# WelDX @ IIW 2021 joint intermediate meeting Comm. I, IV, XII & SG212
+# WelDX @ 2021 IIW Annual Assembly Comm. XII meeting
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/BAMWelDX/IIW_2021_AA_CXII/main?urlpath=lab/tree/iiw2021_CXII_fabry_cagtay_01.ipynb)
 [![Documentation](https://readthedocs.org/projects/weldx/badge/?version=v0.3.3)](https://weldx.readthedocs.io/en/latest/) 
 

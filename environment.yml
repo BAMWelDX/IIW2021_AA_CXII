@@ -13,5 +13,4 @@ dependencies:
   - ipympl=0.5.8
   - nodejs
   - asdf=2.8.1
-  - pip:
-      - git+https://github.com/BAMWelDX/weldx.git@c240216fbc0d4695c7ad2d96b14b488f0163a112
+  - weldx=0.4.0

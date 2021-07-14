@@ -24,13 +24,13 @@ https://mybinder.org/v2/gh/BAMWelDX/IIW2021_AA_CXII/main?urlpath=lab/tree/iiw202
 The example describes a single pass V-Groove weld of 8 mm steel plates.\
 All data is stored in the `single_pass_weld.weldx` file.
 
-<video width="600" src="./data/WID417.webm" controls>
+<video width="600" src="./data/WID417.avi" controls>
   Your browser does not support the video tag.
 </video>
 
 Here are the before and after images of the experimental setup:
 
-<img src="./data/WID417_pre_s.JPG" alt="pre weld image" width=300/> <img src="./data/WID417_post_s.JPG" alt="post weld image" width=300/>
+<img src="./data/WID417_pre.JPG" alt="pre weld image" width=300/> <img src="./data/WID417_post.JPG" alt="post weld image" width=300/>
 
 The interactive notebook demonstrates the contents of the `weldx` file containing the complete dataset and core features
 of the `weldx` package.
@@ -39,7 +39,7 @@ of the `weldx` package.
 
 Interactively browse and search contents of weldx files.
 
-<img src="./data/tree_view.JPG" alt="post weld image" width=600/>
+<img src="./data/view_tree.png" alt="post weld image" width=400/>
 
 ### 3D visualization
 

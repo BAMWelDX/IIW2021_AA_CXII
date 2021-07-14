@@ -39,30 +39,30 @@ of the `weldx` package.
 
 Interactively browse and search contents of weldx files.
 
-<img src="./data/view_tree.png" alt="post weld image" width=400/>
+<img src="./data/view_tree.png" alt="tree view of file contents" width=500/>
 
 ### 3D visualization
 
 Create an interactive 3D visualization of the experiment design.
 
-<img src="./data/K3D-1626253607026.png" alt="post weld image" width=600/>
+<img src="./data/K3D-1626253607026.png" alt="k3d design viz" width=600/>
 
 And compare it with the real data collected during the experiment.
 
-<img src="./data/K3D-1626253575282.png" alt="post weld image" width=600/>
+<img src="./data/K3D-1626253575282.png" alt="k3d experiment viz" width=600/>
 
 ### welding groove shapes
 
 Easily create and directly work with welding groove shapes.
 
-<img src="./data/v_groove.png" alt="post weld image" width=400/>
+<img src="./data/v_groove.png" alt="v-groove shape" width=400/>
 
 ### measurements
 
 Store all related measurement data in a single file.
 
-<img src="./data/measurements.png" alt="post weld image" width=600/>
+<img src="./data/measurements.png" alt="measurement plots" width=600/>
 
 The measurement chain can be described in detail.
 
-<img src="./data/measurement_chain.png" alt="post weld image" width=600/>
+<img src="./data/measurement_chain.png" alt="measurement chain" width=600/>

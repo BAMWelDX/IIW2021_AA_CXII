@@ -13,4 +13,5 @@ dependencies:
   - ipympl=0.5.8
   - nodejs
   - asdf=2.8.1
-  - weldx=0.4.0
+  - pip:
+    - weldx=0.4.0

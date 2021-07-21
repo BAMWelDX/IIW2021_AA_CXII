@@ -15,4 +15,4 @@ dependencies:
   - k3d=2.9.3
   # pinned asdf & weldx versions
   - asdf=2.8.1
-  - weldx=0.4.0
+  - weldx=0.4.1

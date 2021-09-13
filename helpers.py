@@ -4,8 +4,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-import weldx
-from weldx import Q_, SpatialData
+from weldx import Q_, SpatialData, Time, CoordinateSystemManager
 from weldx.constants import WELDX_UNIT_REGISTRY as ureg
 from weldx.geometry import Geometry, LinearHorizontalTraceSegment, Trace
 
@@ -64,7 +63,7 @@ def plot_signal(signal, name, limits=None, ax=None):
         _, ax = plt.subplots(figsize=(_DEFAUL_FIGWIDTH, 6))
 
     data = signal.data
-    time = weldx.util.pandas_time_delta_to_quantity(data.time)
+    time = data.time.as_quantity()
 
     ax.plot(time.m, data.data.m)
     ax.set_ylabel(f"{name} / {ureg.Unit(signal.unit):~}")
@@ -83,9 +82,7 @@ def plot_measurements(measurement_data, limits=None):
 
     for i, measurement in enumerate(measurement_data):
         last_signal = measurement.measurement_chain.signals[-1]
-        plot_signal(
-            last_signal, measurement.name, ax=ax[i], limits=limits
-        )
+        plot_signal(last_signal, measurement.name, ax=ax[i], limits=limits)
         ax[i].set_xlabel(None)
 
     ax[-1].set_xlabel("time / s")
@@ -97,7 +94,7 @@ def plot_measurements(measurement_data, limits=None):
 def parplot(par, t, name, ax):
     """plot a single parameter into an axis"""
     ts = par.interp_time(t)
-    x = weldx.util.pandas_time_delta_to_quantity(t)
+    x = Time(t).as_quantity()
     ax.plot(x.m, ts.data.m)
     ax.set_ylabel(f"{name} / {ts.data.u:~}")
     ax.grid()
@@ -164,7 +161,7 @@ def build_base_csm(weldx_file: dict, plot=True):
     groove = weldx_file["workpiece"]["geometry"]["groove_shape"]
     geometry = create_geometry(groove, seam_length, Q_(10, "mm"))
 
-    csm = weldx.CoordinateSystemManager("workpiece")
+    csm = CoordinateSystemManager("workpiece")
     csm.add_cs("TCP weld", "workpiece", lcs=weldx_file["TCP"])
 
     spatial_data_geo_reduced = geometry.spatial_data(

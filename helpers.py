@@ -3,11 +3,9 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-
-from weldx import Q_, SpatialData, Time, CoordinateSystemManager
+from weldx import Q_, CoordinateSystemManager, SpatialData, Time
 from weldx.constants import WELDX_UNIT_REGISTRY as ureg
 from weldx.geometry import Geometry, LinearHorizontalTraceSegment, Trace
-
 
 _DEFAUL_FIGWIDTH = 10
 

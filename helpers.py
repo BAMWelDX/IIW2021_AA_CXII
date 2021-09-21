@@ -3,6 +3,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+
 from weldx import Q_, CoordinateSystemManager, SpatialData, Time
 from weldx.constants import WELDX_UNIT_REGISTRY as ureg
 from weldx.geometry import Geometry, LinearHorizontalTraceSegment, Trace
@@ -107,7 +108,7 @@ def ipympl_style(fig, toolbar=True):
         fig.tight_layout()
         fig.canvas.toolbar_position = "right"
         fig.canvas.toolbar_visible = toolbar
-    except Exception as ex:
+    except Exception:
         pass
 
 
@@ -122,7 +123,7 @@ def plot_gmaw(gmaw, t):
     fig, ax = plt.subplots(nrows=n, sharex="all", figsize=(_DEFAUL_FIGWIDTH, 2 * n))
     for i, k in enumerate(pars):
         parplot(pars[k], t, k, ax[i])
-    ax[-1].set_xlabel(f"time / s")
+    ax[-1].set_xlabel("time / s")
     ax[0].set_title(title, loc="left")
 
     ipympl_style(fig)

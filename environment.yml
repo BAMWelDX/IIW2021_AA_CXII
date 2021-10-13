@@ -3,16 +3,15 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.8
+  - python=3.9
   - setuptools_scm
   - pip
   # Notebook + Plotting
-  - jupyterlab=2
+  - jupyterlab=3.1
   - ipykernel
-  - matplotlib=3.3.2
-  - ipympl=0.5.8
-  - nodejs
-  - k3d=2.9.3
+  - matplotlib=3.3.4
+  - ipympl=0.8.0
+  - k3d=2.11.0
   # pinned asdf & weldx versions
   - asdf=2.8.1
-  - weldx=0.4.1
+  - weldx=0.5.0

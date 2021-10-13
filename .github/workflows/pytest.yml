@@ -26,7 +26,7 @@ jobs:
       - name: pip installs
         run: |
           pip install wheel
-          pip install asdf==2.8.1 weldx==0.4.1 pytest nbval ipympl
+          pip install asdf==2.8.1 weldx==0.5.0 pytest nbval ipympl
 
       - name: run pytest on notebook
         run: |

@@ -6,7 +6,6 @@ import numpy as np
 from matplotlib import get_backend
 
 from weldx import Q_, CoordinateSystemManager, SpatialData, Time
-from weldx.constants import WELDX_UNIT_REGISTRY as ureg
 from weldx.geometry import Geometry, LinearHorizontalTraceSegment, Trace
 
 _DEFAUL_FIGWIDTH = plt.rcParams["figure.figsize"][0]

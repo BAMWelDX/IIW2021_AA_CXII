@@ -3,14 +3,12 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib import get_backend
 
-import weldx
-from weldx import Q_, SpatialData
-from weldx.constants import WELDX_UNIT_REGISTRY as ureg
+from weldx import Q_, CoordinateSystemManager, SpatialData, Time
 from weldx.geometry import Geometry, LinearHorizontalTraceSegment, Trace
 
-
-_DEFAUL_FIGWIDTH = 10
+_DEFAUL_FIGWIDTH = plt.rcParams["figure.figsize"][0]
 
 cs_colors = {
     "workpiece": (100, 100, 100),
@@ -63,18 +61,12 @@ def plot_signal(signal, name, limits=None, ax=None):
     if not ax:
         _, ax = plt.subplots(figsize=(_DEFAUL_FIGWIDTH, 6))
 
-    data = signal.data
-    time = weldx.util.pandas_time_delta_to_quantity(data.time)
-
-    ax.plot(time.m, data.data.m)
-    ax.set_ylabel(f"{name} / {ureg.Unit(signal.unit):~}")
-    ax.set_xlabel("time / s")
-    ax.grid()
+    signal.plot(data_name=name, axes=ax)
 
     if limits is not None:
         ax.set_xlim(limits)
 
-    # ipympl_style(ax.figure)
+    fig_style(ax.figure)
 
 
 def plot_measurements(measurement_data, limits=None):
@@ -83,37 +75,34 @@ def plot_measurements(measurement_data, limits=None):
 
     for i, measurement in enumerate(measurement_data):
         last_signal = measurement.measurement_chain.signals[-1]
-        plot_signal(
-            last_signal, measurement.name, ax=ax[i], limits=limits
-        )
+        last_signal.plot(data_name=measurement.name, axes=ax[i])
+        if limits is not None:
+            ax.set_xlim(limits)
         ax[i].set_xlabel(None)
 
     ax[-1].set_xlabel("time / s")
     ax[0].set_title("Measurements")
 
-    # ipympl_style(fig)
+    fig_style(fig)
 
 
 def parplot(par, t, name, ax):
     """plot a single parameter into an axis"""
     ts = par.interp_time(t)
-    x = weldx.util.pandas_time_delta_to_quantity(t)
+    x = Time(t).as_quantity()
     ax.plot(x.m, ts.data.m)
     ax.set_ylabel(f"{name} / {ts.data.u:~}")
-    ax.grid()
 
 
-def ipympl_style(fig, toolbar=True):
+def fig_style(fig, toolbar=True):
     """Apply default figure styling for ipympl backend."""
 
-    try:
+    if get_backend() == "module://ipympl.backend_nbagg":
         fig.canvas.header_visible = False
         fig.canvas.resizable = False
         fig.tight_layout()
         fig.canvas.toolbar_position = "right"
         fig.canvas.toolbar_visible = toolbar
-    except Exception as ex:
-        pass
 
 
 def plot_gmaw(gmaw, t):
@@ -127,10 +116,10 @@ def plot_gmaw(gmaw, t):
     fig, ax = plt.subplots(nrows=n, sharex="all", figsize=(_DEFAUL_FIGWIDTH, 2 * n))
     for i, k in enumerate(pars):
         parplot(pars[k], t, k, ax[i])
-    ax[-1].set_xlabel(f"time / s")
+    ax[-1].set_xlabel("time / s")
     ax[0].set_title(title, loc="left")
 
-    ipympl_style(fig)
+    fig_style(fig)
 
     return fig, ax
 
@@ -149,7 +138,8 @@ def ax_setup(ax):
     ax.set_ylim([-10.5, 10.5])
     ax.set_zlim([0, 15])
     ax.figure.set_size_inches(8, 8)
-    ipympl_style(ax.figure)
+
+    fig_style(ax.axes.figure)
 
 
 def add_axis_labels_3d(axes):
@@ -164,7 +154,7 @@ def build_base_csm(weldx_file: dict, plot=True):
     groove = weldx_file["workpiece"]["geometry"]["groove_shape"]
     geometry = create_geometry(groove, seam_length, Q_(10, "mm"))
 
-    csm = weldx.CoordinateSystemManager("workpiece")
+    csm = CoordinateSystemManager("workpiece")
     csm.add_cs("TCP weld", "workpiece", lcs=weldx_file["TCP"])
 
     spatial_data_geo_reduced = geometry.spatial_data(

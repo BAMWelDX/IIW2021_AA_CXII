@@ -16,7 +16,10 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         py: ['3.8']
-        weldx_version: ['weldx==0.5.0', 'weldx', 'git+https://github.com/BAMWelDX/weldx.git']
+        weldx_version:
+          - 'weldx==0.5.0'
+          - 'weldx'
+          - 'git+https://github.com/BAMWelDX/weldx.git'
     env:
       WELDX_VERSION: ${{ matrix.weldx_version }}
     steps:

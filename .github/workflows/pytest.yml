@@ -42,4 +42,4 @@ jobs:
 
       - name: run pytest on notebook
         run: |
-          pytest --color=yes --nbval-lax --current-env iiw2021_CXII_fabry_cagtay_01.ipynb
+          pytest -W --color=yes --nbval-lax --current-env iiw2021_CXII_fabry_cagtay_01.ipynb

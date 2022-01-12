@@ -13,5 +13,5 @@ dependencies:
   - ipympl=0.8.0
   - k3d=2.11.0
   # pinned asdf & weldx versions
-  - asdf=2.8.1
+  - asdf=2.8.2
   - weldx=0.5.0

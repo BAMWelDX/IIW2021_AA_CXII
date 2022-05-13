@@ -4,6 +4,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import get_backend
+
 from weldx import Q_, U_, CoordinateSystemManager, SpatialData, Time
 from weldx.geometry import Geometry, LinearHorizontalTraceSegment, Trace
 

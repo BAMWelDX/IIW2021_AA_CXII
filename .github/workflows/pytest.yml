@@ -17,7 +17,7 @@ jobs:
         os: [ubuntu-latest]
         py: ['3.8']
         weldx_version:
-          - 'weldx==0.5.0'
+          - 'weldx==0.6.0'
           - 'weldx'
           - 'git+https://github.com/BAMWelDX/weldx.git'
     env:
@@ -38,7 +38,7 @@ jobs:
       - name: pip installs
         run: |
           pip install wheel
-          pip install asdf==2.8.2 $WELDX_VERSION pytest nbval ipympl
+          pip install asdf==2.11.1 $WELDX_VERSION weldx-widgets pytest nbval ipympl
 
       - name: run pytest on notebook
         run: |

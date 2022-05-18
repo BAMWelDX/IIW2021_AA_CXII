@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import get_backend
 
-from weldx import Q_, CoordinateSystemManager, SpatialData, Time
+from weldx import Q_, U_, CoordinateSystemManager, SpatialData, Time
 from weldx.geometry import Geometry, LinearHorizontalTraceSegment, Trace
 
 _DEFAUL_FIGWIDTH = plt.rcParams["figure.figsize"][0]
@@ -52,7 +52,8 @@ def welding_wire_geo_data(radius, length, cross_section_resolution=8):
     triangles[-1][2] = 0
 
     return SpatialData(
-        np.array(points, dtype="float32"), np.array(triangles, dtype="uint32")
+        np.array(points, dtype="float32") * U_("mm"),
+        np.array(triangles, dtype="uint32"),
     )
 
 

@@ -1,6 +1,5 @@
 """Functions and code used for the IIW presentation notebook"""
 
-
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import get_backend

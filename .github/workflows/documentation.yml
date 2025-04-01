@@ -19,7 +19,7 @@ jobs:
         uses: mamba-org/setup-micromamba@v2.0.3
         with:
           micromamba-version: "2.0.2-0"
-          environment-file: ./environment_pages.yml
+          environment-file: ./environment.yml
           environment-name: weldx
           init-shell: >-
             bash

@@ -18,4 +18,3 @@ dependencies:
   - sphinx=7.2.6
   - myst-nb=1.0.0
   - furo=2024.5.6
-

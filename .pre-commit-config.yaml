@@ -8,20 +8,14 @@ repos:
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
       - id: end-of-file-fixer
-  - repo: https://github.com/psf/black
-    rev: 22.8.0
+  # ----- Python formatting -----
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.11.2
     hooks:
-      - id: black
-  - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
-    hooks:
-      - id: isort
-  - repo: https://github.com/PyCQA/flake8
-    rev: 5.0.4
-    hooks:
-      - id: flake8
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.5.2
-    hooks:
-      - id: nbqa-black
-      - id: nbqa-isort
+    # Run ruff linter.
+    - id: ruff
+      args:
+      - --quiet
+      - --fix
+  # Run ruff formatter.
+    - id: ruff-format

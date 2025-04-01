@@ -24,13 +24,13 @@ https://mybinder.org/v2/gh/BAMWelDX/IIW2021_AA_CXII/main?urlpath=lab/tree/iiw202
 The example describes a single pass V-Groove weld of 8 mm steel plates.\
 All data is stored in the `single_pass_weld.weldx` file.
 
-<video width="600" src="./data/WID417.avi" controls>
+<video width="600" src="./_static/WID417.avi" controls>
   Your browser does not support the video tag.
 </video>
 
 Here are the before and after images of the experimental setup:
 
-<img src="./data/WID417_pre.JPG" alt="pre weld image" width=300/> <img src="./data/WID417_post.JPG" alt="post weld image" width=300/>
+<img src="./_static/WID417_pre.JPG" alt="pre weld image" width=300/> <img src="./_static/WID417_post.JPG" alt="post weld image" width=300/>
 
 The interactive notebook demonstrates the contents of the `weldx` file containing the complete dataset and core features
 of the `weldx` package.
@@ -39,30 +39,30 @@ of the `weldx` package.
 
 Interactively browse and search contents of weldx files.
 
-<img src="./data/view_tree.png" alt="tree view of file contents" width=500/>
+<img src="./_static/view_tree.png" alt="tree view of file contents" width=500/>
 
 ### 3D visualization
 
 Create an interactive 3D visualization of the experiment design.
 
-<img src="./data/K3D-1626253607026.png" alt="k3d design viz" width=600/>
+<img src="./_static/K3D-1626253607026.png" alt="k3d design viz" width=600/>
 
 And compare it with the real data collected during the experiment.
 
-<img src="./data/K3D-1626253575282.png" alt="k3d experiment viz" width=600/>
+<img src="./_static/K3D-1626253575282.png" alt="k3d experiment viz" width=600/>
 
 ### welding groove shapes
 
 Easily create and directly work with welding groove shapes.
 
-<img src="./data/v_groove.png" alt="v-groove shape" width=400/>
+<img src="./_static/v_groove.png" alt="v-groove shape" width=400/>
 
 ### measurements
 
 Store all related measurement data in a single file.
 
-<img src="./data/measurements.png" alt="measurement plots" width=600/>
+<img src="./_static/measurements.png" alt="measurement plots" width=600/>
 
 The measurement chain can be described in detail.
 
-<img src="./data/measurement_chain.png" alt="measurement chain" width=600/>
+<img src="./_static/measurement_chain.png" alt="measurement chain" width=600/>

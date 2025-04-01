@@ -28,7 +28,7 @@ source_suffix = {
     ".md": "myst-nb",
 }
 
-nb_kernel_rgx_aliases = {"*": "weldx"}
+nb_kernel_rgx_aliases = {".*": "weldx"}
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

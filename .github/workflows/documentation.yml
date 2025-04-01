@@ -1,0 +1,43 @@
+name: documentation
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: write
+
+# execute commands with conda aware shell by default:
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Conda Environment
+        uses: mamba-org/setup-micromamba@v2.0.3
+        with:
+          micromamba-version: "2.0.2-0"
+          environment-file: ./environment_pages.yml
+          environment-name: weldx
+          init-shell: >-
+            bash
+            powershell
+          # persist on the same day.
+          cache-environment-key: environment-${{ steps.date.outputs.date }}
+      - name: activate env
+        run: micromamba activate weldx
+      - name: install weldx kernel
+        run: ipython kernel install --user --name=weldx
+      - name: Sphinx build
+        run: |
+          make html
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        with:
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _build/html/
+          force_orphan: true

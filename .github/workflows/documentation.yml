@@ -28,6 +28,8 @@ jobs:
           cache-environment-key: environment-${{ steps.date.outputs.date }}
       - name: activate env
         run: micromamba activate weldx
+      - name: install weldx kernel
+        run: ipython kernel install --user --name=weldx
       - name: Sphinx build
         run: |
           make html
